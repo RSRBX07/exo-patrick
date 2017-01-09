@@ -6,4 +6,4 @@ while tirage.length < 5
         tirage.push(x)
     end
 end
-print tirage
+print "le tirage du jour est ", tirage.sort
