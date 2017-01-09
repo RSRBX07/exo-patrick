@@ -1,8 +1,8 @@
 #exercices sur les nombres
 
 #calcul nombre de secondes en 1 année
-nombre_secondes = 365*24*3600
-puts "nombre de secondes par an (hors année bissextile)= #{nombre_secondes}"
+nombre_secondes = (365.25*24*3600).to_i
+puts "nombre de secondes par an : #{nombre_secondes}"
 
 #calcul de l'age en secondes'
 now = Time.now
@@ -12,8 +12,9 @@ age_secondes=now-birth2
 puts "age=#{age_secondes} secondes"
 puts "age=#{now-birth} secondes"
 
+coef=Time.now.to_i / nombre_secondes
+puts "origin : #{Time.now.year - coef}"
+
 origin=Time.new(0)
-test=Time.new(1,1,1)
-p(origin)
-p(test)
-p((test-origin).to_i)
+puts "origin (new 0) : #{origin.to_i / nombre_secondes}"
+
