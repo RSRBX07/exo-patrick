@@ -3,7 +3,7 @@ begin
 	print "Entrez une série de 5 numéros entre 1 et 49, séparés par des espaces : "
 	input_lotto_board = gets.chomp.split(' ')
 	#conversion numérique, contrôle des limites et unicité
-	lotto_board = input_lotto_board.reject{|number| number.to_i < 1 || number.to_i > 49}.collect{|number| number.to_i}.uniq
+	lotto_board = input_lotto_board.collect{|number| number.to_i}.uniq.reject{|number| number < 1 || number > 49}
 end until lotto_board.length == 5
 #grille jouée
 puts "Grille #{lotto_board.join ','}"
