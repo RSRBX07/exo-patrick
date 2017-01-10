@@ -11,11 +11,11 @@ Car la route est longue.
 iterations=(0..29).to_a.reverse
 iterations.each do |i|
     if i > 1
-        puts "Ma poul' n'a plus qu' #{i} poussins, " * 2
+        (1..2).each { puts "Ma poul' n'a plus qu' #{i} poussins" }
     elsif i == 1
-        puts "Ma poul' n'a plus qu'un seul poussin, " * 2
+        (1..2).each { puts "Ma poul' n'a plus qu'un seul poussin" }
     else
-        puts "Ma poul' n'a plus aucun poussin, " * 2
+        (1..2).each { puts "Ma poul' n'a plus aucun poussin" }
     end
     puts "Elle en avait trente"
     puts "Allongeons la jambe,"
