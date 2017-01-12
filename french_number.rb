@@ -29,5 +29,5 @@ def num_to_string number
     end
 end
 
+(0..9).each {|n| puts num_to_string n}
 puts num_to_string 'toto'
-puts num_to_string 5
