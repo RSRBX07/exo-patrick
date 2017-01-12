@@ -25,7 +25,7 @@ def num_to_string number
     when 9
         "neuf"
     else
-        "chiffre inconnu"
+        raise ArgumentError, "chiffre inconnu"
     end
 end
 
