@@ -25,12 +25,23 @@ def num_to_string number, first_call=true
                 unite += 10
             end
             string += ["vingt","trente","quarante","cinquante","soixante",nil,"quatre-vingt"][dizaine]+num_to_string(unite, false)
+        when 100..999
+            centaine=number/100
+            reste=number%100            
+            if centaine > 1
+                string += num_to_string(centaine)
+            end
+            if reste == 0
+                string += " cent "
+            else
+                string += " cent " + num_to_string(reste)
+            end
         end
     else
         raise ArgumentError, "#{number} is not a Fixnum"
     end
 end
 
-(0..99).each {|n| puts num_to_string n}
+(800..999).each {|n| puts num_to_string n}
 #puts num_to_string 20
 #puts num_to_string 'toto'
