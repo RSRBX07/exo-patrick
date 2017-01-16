@@ -7,14 +7,22 @@ dice = Dice.new
 puts dice.roll "trois"
 puts dice.roll
 
-puts 1234.spell_to_french
+number = rand(999999999)
+puts "number:#{number} soit #{number.spell_to_french}"
 
-
-#grille jouée
-puts "Grille #{lotto_board.join ','}"
-#tirage du loto
-lotto_draw = (1..49).to_a.shuffle.take(5).sort
-puts "Tirage #{lotto_draw.join ','}"
-#numéros gagnants
-winning_number = lotto_draw & lotto_board
-(winning_number.length==0) ? (puts "Aucun numéro gagnant") : (puts "Numéro(s) gagnant(s) #{winning_number.join ','}")
+# loto
+loto = Loto.new
+# choisir une grille
+puts "Jeu:#{loto.create_lotto_board.join ','}"
+# faire un tirage
+(1..1000).each { |n|
+    puts "Tirage #{n} : #{loto.do_lotto_draw.join ','}"
+    if loto.win?
+        break
+    end
+}
+if loto.win?
+    puts "Loto : numéro(s) gagnant(s) #{loto.return_winning_number}"
+else
+    puts "Loto perdu"
+end
