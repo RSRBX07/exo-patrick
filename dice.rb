@@ -1,3 +1,6 @@
+class Dice
+end
+
 #écrire une méthode qui retourne le tirage d'un dé
 def roll cheated=false
     cheated ? cheated : {1=>'un',
