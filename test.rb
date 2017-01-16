@@ -13,7 +13,7 @@ puts "number:#{number} soit #{number.spell_to_french}"
 # loto
 loto = Loto.new
 # choisir plusieurs grilles
-(1..100).each do |n|
+(1..1000).each do |n|
     puts "Jeu:#{loto.create_lotto_board Loto.random_board}"
 end
 
@@ -21,10 +21,11 @@ end
 #puts "Jeu:#{loto.create_lotto_board.join ','}"
 #puts "Jeu:#{loto.create_lotto_board.join ','}"
 # faire 1000 tirages tant qu'on ne gagne pas'
-(1..1000).each do |n|
+(1..10000).each do |n|
     puts "Tirage #{n} : #{loto.do_lotto_draw.join ','}"
     break if loto.win?
 end
+puts "#{loto.boards_count} grilles jouées"
 puts loto.win? ? "Loto : numéro(s) gagnant(s) #{loto.lotto_winning_boards}" : "Loto perdu"
 
 

@@ -1,11 +1,13 @@
 class Loto
 
 	attr_reader :lotto_winning_boards
+	attr_reader :boards_count
 
 	def initialize
 		@lotto_boards = []
 		@lotto_draw  = nil
 		@lotto_winning_boards = []
+		@boards_count = 0
 	end
 
 	def self.random_board
@@ -18,10 +20,8 @@ class Loto
 	end
 
 	def create_lotto_board board=nil
-		if played?
-			return false
-		end
-		if board
+		return false if played?
+		if !!board
 			new_board = board.sort
 			@lotto_boards << new_board
 			return new_board
@@ -39,6 +39,7 @@ class Loto
 
 	def do_lotto_draw
 		#tirage du loto
+		@boards_count += @lotto_boards.length
 		@lotto_draw = (1..49).to_a.shuffle.take(5).sort
 	end
 
@@ -52,7 +53,7 @@ class Loto
 	end
 
 	def played?
-		@lotto_draw
+		!!@lotto_draw
 	end
 
 	def define_winning_boards
@@ -60,7 +61,7 @@ class Loto
 		@lotto_winning_boards = []
 		@lotto_boards.each do |board|
 			winning_board = board & @lotto_draw
-			if winning_board.length >= 2
+			if winning_board.length == 5
 				@lotto_winning_boards << winning_board
 			end
 		end
