@@ -18,6 +18,9 @@ class Loto
 	end
 
 	def create_lotto_board board=nil
+		if played?
+			return false
+		end
 		if board
 			new_board = board.sort
 			@lotto_boards << new_board

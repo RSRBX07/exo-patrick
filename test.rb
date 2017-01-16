@@ -27,3 +27,9 @@ end
 end
 puts loto.win? ? "Loto : numéro(s) gagnant(s) #{loto.lotto_winning_boards}" : "Loto perdu"
 
+
+puts "Le tirage a déjà eu lieu" if loto.played?
+
+if loto.create_lotto_board(Loto.random_board) == false
+    puts "Impossible d'ajouter une grille : le tirage a déjà eu lieu"
+end
