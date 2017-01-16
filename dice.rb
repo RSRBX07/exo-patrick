@@ -11,8 +11,3 @@ class Dice
     end
 end
 
-
-#afficher le résultat d'un tirage de dé à 6 faces'
-dice = Dice.new
-puts dice.roll "trois"
-puts dice.roll
