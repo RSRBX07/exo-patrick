@@ -1,5 +1,10 @@
-name = gets().chomp
-puts 'hello' << ' ' << name
-puts "hello #{name}"
-puts "comment vas-tu ?"
-3.times {puts "salut #{name} !"}
+case 7
+when 0
+    puts "zero"
+    break
+when 7
+    puts "seven"
+when 6..8
+    puts "six..eight"
+end
+

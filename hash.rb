@@ -6,7 +6,7 @@ zipcodes={
     roubaix:   59100,
     ennevelin: 59710,
     lille:     59000,
-    toulon:    83000
+    toulon:    83001
 }
 
 print "Donner moi une ville : "

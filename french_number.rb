@@ -25,16 +25,18 @@ def num_to_string number, first_call=true
                 unite += 10
             end
             string += ["vingt","trente","quarante","cinquante","soixante",nil,"quatre-vingt"][dizaine]+num_to_string(unite, false)
-        when 100..999
-            centaine=number/100
-            reste=number%100            
-            if centaine > 1
-                string += num_to_string(centaine)
+        else
+            number_length=number.to_s.length
+            multiplier = number / (10**(number_length-1))
+            modulo = number % (10**(number_length-1))
+            if multiplier > 1
+                string += num_to_string(multiplier)
             end
-            if reste == 0
-                string += " cent "
+            multiplier_string = ["cent","mille"][number_length-3]
+            if modulo==0
+                string += ' ' + multiplier_string
             else
-                string += " cent " + num_to_string(reste)
+                string += ' ' + multiplier_string + ' ' + num_to_string(modulo)
             end
         end
     else
@@ -42,6 +44,6 @@ def num_to_string number, first_call=true
     end
 end
 
-(800..999).each {|n| puts num_to_string n}
+(0..99).each {|n| puts num_to_string n}
 #puts num_to_string 20
 #puts num_to_string 'toto'
