@@ -56,15 +56,17 @@ class Loto
 		!!@lotto_draw
 	end
 
+	private
 	def define_winning_boards
 		#meilleurs numéros gagnants
 		@lotto_winning_boards = []
 		@lotto_boards.each do |board|
 			winning_board = board & @lotto_draw
-			if winning_board.length == 5
+			if winning_board.length >= 2
 				@lotto_winning_boards << winning_board
 			end
 		end
 		@lotto_winning_boards
 	end
+	
 end
