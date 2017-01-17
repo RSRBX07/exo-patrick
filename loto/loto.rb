@@ -1,6 +1,6 @@
 class Loto
 
-	attr_reader :lotto_winning_boards
+	attr_reader :lotto_winning_boards, :lotto_boards
 	attr_reader :boards_count
 	attr_reader :lotto_draw
 

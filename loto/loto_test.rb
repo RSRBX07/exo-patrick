@@ -10,9 +10,12 @@ require './loto.rb'
 
 # loto
 loto = Loto.new
+
+puts loto.lotto_boards.inspect
 # choisir plusieurs grilles
 (1..2).each do |n|
     puts "Jeu:#{loto.create_lotto_board Loto.random_board}"
+    puts loto.lotto_boards.inspect
 end
 
 #puts "Jeu:#{loto.create_lotto_board.join ','}"
