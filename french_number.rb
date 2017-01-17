@@ -43,7 +43,7 @@ class Fixnum
 					modulo += 10
 				end
 				return_string += [nil,nil,"vingt","trente","quarante","cinquante","soixante",nil,"quatre-vingt"][divide]+num_to_string(modulo, true)
-			when 100..999
+			when 100..999 
 				return_string += compute number, 10**2, "cent", false
 			when 1000..999999
 				return_string += compute number, 10**3, "mille", false
