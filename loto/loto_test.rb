@@ -1,14 +1,12 @@
-require './dice.rb'
-require './french_number.rb'
 require './loto.rb'
 
 #afficher le résultat d'un tirage de dé à 6 faces'
-dice = Dice.new
-puts dice.roll "trois"
-puts dice.roll
+# dice = Dice.new
+# puts dice.roll "trois"
+# puts dice.roll
 
-number = rand(999999999)
-puts "number:#{number} soit #{number.spell_to_french}"
+# number = rand(999999999)
+# puts "number:#{number} soit #{number.spell_to_french}"
 
 # loto
 loto = Loto.new
