@@ -26,7 +26,7 @@ end
     break if loto.win?
 end
 puts "#{loto.boards_count} grilles jouées"
-puts "Résultat du loto : #{loto.lotto_draw}"
+puts "Dernier résultat du loto : #{loto.lotto_draw}"
 puts loto.win? ? "Loto : numéro(s) gagnant(s) #{loto.lotto_winning_boards}" : "Loto perdu"
 
 

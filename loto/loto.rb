@@ -71,3 +71,5 @@ class Loto
 	end
 	
 end
+
+puts "loto loaded...."
