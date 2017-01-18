@@ -20,5 +20,9 @@ RSpec.describe Vehicle do
     vehicle.out_of_order = true
     expect(vehicle.move :Lille).to be position
   end
+
+  it 'count new vehicle' do
+    
+  end
 end
 
