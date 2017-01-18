@@ -1,8 +1,8 @@
 class Vehicle
   attr_reader :position
 
-  def initialize
-    @position = :Roubaix
+  def initialize town=:Roubaix
+    @position = town
   end
 
   def move where
