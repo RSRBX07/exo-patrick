@@ -1,5 +1,31 @@
 require './loto/loto.rb'
 
+RSpec.describe Loto do
+    xit 'input board' do
+    end
+
+    it 'get random board' do
+        expect(Loto.random_board).not_to be_nil
+        expect(Loto.random_board).to be_a Array
+        expect(Loto.random_board.size).to equal 5
+        expect(Loto.random_board).not_to eql Loto.random_board
+    end
+
+    it 'make a draw' do
+        loto = Loto.new
+        expect(loto).to respond_to :do_lotto_draw
+        lotto_draw = loto.do_lotto_draw
+        expect(lotto_draw).not_to be_nil
+        expect(lotto_draw).to be_a Array
+        expect(lotto_draw.size).to equal 5
+    end
+
+    it 'create a board with argument' do
+        loto = Loto.new
+        expect(loto).to respond_to :create_lotto_board
+    end
+end
+
 #afficher le résultat d'un tirage de dé à 6 faces'
 # dice = Dice.new
 # puts dice.roll "trois"
