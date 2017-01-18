@@ -11,7 +11,6 @@ class Plane < Vehicle
   def takeoff
     return @status if out_of_order
     @status = :flying
-    @status = :flying
   end
 
   def landing
