@@ -9,10 +9,12 @@ class Plane < Vehicle
   end
 
   def takeoff
+    return @status if out_of_order
     @status = :flying
   end
 
   def landing
+    return @status if out_of_order
     @status = :grounded
   end
 

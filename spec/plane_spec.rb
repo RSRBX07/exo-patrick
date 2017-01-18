@@ -17,6 +17,13 @@ RSpec.describe Plane do
     plane.landing
     expect(plane.status).to be :grounded
   end
+
+  it 'doent take off if is out of order' do
+    plane = Plane.new
+    plane.out_of_order = true
+    plane.takeoff
+    expect(plane.status).to be :grounded
+  end
   
 end
 
