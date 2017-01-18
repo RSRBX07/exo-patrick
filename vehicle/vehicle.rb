@@ -1,4 +1,4 @@
-class Vehicule
+class Vehicle
   attr_reader :position
 
   def initialize
