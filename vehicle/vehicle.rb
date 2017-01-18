@@ -11,4 +11,9 @@ class Vehicle
     return @position if out_of_order
     @position = where
   end
+
+  def self.moving_method
+    :driving
+  end
+  
 end

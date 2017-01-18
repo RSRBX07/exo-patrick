@@ -18,4 +18,8 @@ class Plane < Vehicle
     @status = :grounded
   end
 
+  def self.moving_method
+    :flying
+  end
+
 end
