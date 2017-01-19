@@ -1,6 +1,7 @@
 class Counter
 #  @@filename = './tmp/counter.txt'
-  @@filename = '/Users/admin/Desktop/ExosRuby/Test/tmp/counter.txt'
+#  @@filename = '/Users/admin/Desktop/ExosRuby/Test/tmp/counter.txt'
+  @@filename = File.join(File.dirname(__FILE__), '../tmp/counter.txt')
 
   def self.add_one
     count = value + 1
