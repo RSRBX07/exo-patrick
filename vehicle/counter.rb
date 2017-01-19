@@ -2,7 +2,11 @@ class Counter
 
   def self.add_one a_class
     counters = self.read_all
-    counters.key? a_class.to_s ? counters[a_class.to_s] += 1 : counters[a_class.to_s] = 1
+    if counters.key? a_class.to_s
+      counters[a_class.to_s] += 1 
+    else
+      counters[a_class.to_s] = 1
+    end
     file = File.open(get_filename, 'w')
     counters.each do |e|
       file.puts(e[0] + '=' + e[1].to_s)
