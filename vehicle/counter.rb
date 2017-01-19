@@ -1,12 +1,9 @@
 class Counter
-#  @@filename = './tmp/counter.txt'
-#  @@filename = '/Users/admin/Desktop/ExosRuby/Test/tmp/counter.txt'
-#  @@filename = File.join(File.dirname(__FILE__), '../tmp/counter.txt')
 
   def self.get_filename
     dirname = File.join(File.dirname(__FILE__), '../tmp')
     Dir::mkdir dirname unless File.exist? dirname
-    filename = dirname + '/counter.txt'
+    dirname + '/counter.txt'
   end
 
   def self.add_one
