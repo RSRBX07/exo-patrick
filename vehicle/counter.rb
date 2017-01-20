@@ -1,40 +1,45 @@
+require 'yaml'
+
+class InternalCounter
+  attr_accessor :counters
+
+  def initialize
+    @counters = {}
+  end
+
+  def self.load
+    return YAML::load '' unless File.exist? self.filename
+    YAML::load_file self.filename
+  end
+
+  def save
+    File.open(InternalCounter.filename, 'w') {|f| f.write self.to_yaml }
+  end
+
+  def self.filename
+    dirname = File.join(File.dirname(__FILE__), '../tmp/')
+    Dir::mkdir dirname unless File.exist? dirname
+    dirname + 'counter.yml'
+  end
+
+end
+
 class Counter
 
   def self.add_one a_class
-    counters = self.read_all
-    if counters.key? a_class.to_s
-      counters[a_class.to_s] += 1 
+    ic = InternalCounter.load
+    if ic.counters.key? a_class.to_s
+      ic.counters[a_class.to_s] += 1 
     else
-      counters[a_class.to_s] = 1
+      ic.counters[a_class.to_s] = 1
     end
-    file = File.open(get_filename, 'w')
-    counters.each do |e|
-      file.puts(e[0] + '=' + e[1].to_s)
-    end      
-    file.close
+    ic.save
   end
 
   def self.value a_class
-    counters = self.read_all
-    return 0 unless counters.key? a_class.to_s
-    counters[a_class.to_s] 
-  end
-
-  private
-  def self.get_filename
-    dirname = File.join(File.dirname(__FILE__), '../tmp/')
-    Dir::mkdir dirname unless File.exist? dirname
-    dirname + 'counter.txt'
-  end
-  
-  def self.read_all
-    return {} unless File.exist? get_filename
-    counters = {}
-    File.open(get_filename, 'r').each_line do |line|
-      values = line.split '='
-      counters[values[0]] = values[1].to_i
-    end
-    counters
+    ic = InternalCounter.load
+    return 0 unless ic.counters.key? a_class.to_s
+    ic.counters[a_class.to_s] 
   end
   
 end
