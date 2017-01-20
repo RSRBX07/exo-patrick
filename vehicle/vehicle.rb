@@ -7,7 +7,7 @@ class Vehicle
   def initialize town=:Roubaix
     @position = town
     @out_of_order = false
-    Counter.add_one self.class
+    Counter.add_one self
   end
 
   # return the number of existing objects in a ruby session

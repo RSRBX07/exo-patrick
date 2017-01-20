@@ -1,5 +1,6 @@
 require_relative 'vehicle.rb'
 require_relative 'plane.rb'
+require_relative 'firetruck.rb'
 
 car = Vehicle.new
 puts car.inspect
@@ -17,4 +18,7 @@ puts plane.inspect
 plane.landing
 puts plane.inspect
 puts "plane moving method #{Plane.moving_method}"
-puts "number of vehicles:#{Plane.count}"
+puts "number of planes:#{Plane.count}"
+
+firetruck = Firetruck.new
+puts "number of firetrucks:#{Firetruck.count}"

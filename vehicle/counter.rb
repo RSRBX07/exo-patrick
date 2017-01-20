@@ -8,7 +8,7 @@ class InternalCounter
   end
 
   def self.load
-    return YAML::load '' unless File.exist? self.filename
+    return self.new unless File.exist? self.filename
     YAML::load_file self.filename
   end
 
@@ -28,18 +28,20 @@ class Counter
 
   def self.add_one a_class
     ic = InternalCounter.load
-    if ic.counters.key? a_class.to_s
-      ic.counters[a_class.to_s] += 1 
+    name = a_class.class.to_s
+    if ic.counters.key? name
+      ic.counters[name] += 1 
     else
-      ic.counters[a_class.to_s] = 1
+      ic.counters[name.to_s] = 1
     end
     ic.save
   end
 
   def self.value a_class
     ic = InternalCounter.load
-    return 0 unless ic.counters.key? a_class.to_s
-    ic.counters[a_class.to_s] 
+    name = a_class.to_s
+    return 0 unless ic.counters.key? name
+    ic.counters[name] 
   end
   
 end
