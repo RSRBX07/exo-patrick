@@ -1,4 +1,4 @@
-require './loto/loto.rb'
+require_relative '../lib/loto/loto.rb'
 
 RSpec.describe Loto do
     xit 'input board' do

@@ -1,4 +1,4 @@
-require_relative '../vehicle/plane.rb'
+require_relative '../lib/vehicle/plane.rb'
 
 RSpec.describe Plane do
   it 'is grounded when created' do
