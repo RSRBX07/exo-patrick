@@ -16,6 +16,18 @@ class InternalCounter
     File.open(InternalCounter.filename, 'w') {|f| f.write self.to_yaml }
   end
 
+  def read_count a_class
+    name = a_class.class.to_s
+    return 0 unless counters.key? name
+    counters[name]
+  end
+
+  def inc_count a_class
+    name = a_class.class.to_s
+    count = read_count a_class
+    counters[name] = count + 1
+  end
+
   def self.filename
     dirname = File.join(File.dirname(__FILE__), '../tmp/')
     Dir::mkdir dirname unless File.exist? dirname
@@ -28,20 +40,13 @@ class Counter
 
   def self.add_one a_class
     ic = InternalCounter.load
-    name = a_class.class.to_s
-    if ic.counters.key? name
-      ic.counters[name] += 1 
-    else
-      ic.counters[name.to_s] = 1
-    end
+    ic.inc_count a_class
     ic.save
   end
 
   def self.value a_class
     ic = InternalCounter.load
-    name = a_class.to_s
-    return 0 unless ic.counters.key? name
-    ic.counters[name] 
+    ic.read_count a_class
   end
   
 end
