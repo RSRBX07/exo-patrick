@@ -8,11 +8,9 @@
 <p>
   <strong>Résultat:</strong>
   <%= @game.description %>
-</p>
-
-<p>
-  <strong>Numéros:</strong>
-  <%= @game.draw %>
+  <% @game.balls.each do |ball| %>
+  <span class="btn-success"><%= ball %></span>
+  <% end %>
 </p>
 
 <%= link_to 'Retour à la liste', games_path %>

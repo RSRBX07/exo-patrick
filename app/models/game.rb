@@ -8,4 +8,8 @@ class Game < ApplicationRecord
 #    @players -= 1 if @players > 0
   end
 
+  def balls
+    draw.split ','
+  end
+
 end

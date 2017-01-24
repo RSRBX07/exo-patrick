@@ -8,8 +8,8 @@
 
 Game.destroy_all
 Game.create([
-  {name:'Loto du lundi', description:'Le tirage est', draw: '12, 42, 11, 6 et 33'},
-  {name:'Loto du mardi', description:'Le tirage est', draw: '13, 42, 11, 6 et 33'},
-  {name:'Loto du mercredi',description:'Le tirage est', draw: '14, 42, 11, 6 et 33'},
-  {name:'Loto du jeudi', description:'Le tirage est', draw: '15, 42, 11, 6 et 33'},
-  {name:'Loto du vendredi', description:'Le tirage est', draw: '16, 42, 11, 6 et 33'}])
+  {name:'Loto du lundi', description:'Le tirage est', draw: '12, 42, 11, 6, 33'},
+  {name:'Loto du mardi', description:'Le tirage est', draw: '13, 42, 11, 6, 33'},
+  {name:'Loto du mercredi',description:'Le tirage est', draw: '14, 42, 11, 6, 33'},
+  {name:'Loto du jeudi', description:'Le tirage est', draw: '15, 42, 11, 6, 33'},
+  {name:'Loto du vendredi', description:'Le tirage est', draw: '16, 42, 11, 6, 33'}])
