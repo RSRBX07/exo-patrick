@@ -1,4 +1,4 @@
-require_relative '../vehicle/vehicle.rb'
+require_relative '../lib/vehicle/vehicle.rb'
 
 RSpec.describe Vehicle do
   it 'is in a defined position' do
