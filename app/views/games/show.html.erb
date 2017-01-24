@@ -1,16 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Tirage:</strong>
   <%= @game.name %>
 </p>
 
-<p>There is currently </p>
-
 <p>
-  <strong>Description:</strong>
+  <strong>Résultat:</strong>
   <%= @game.description %>
 </p>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+<%= link_to 'Retour à la liste', games_path %>
